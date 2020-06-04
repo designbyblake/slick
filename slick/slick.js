@@ -13,7 +13,7 @@
     Repo: http://github.com/kenwheeler/slick
   Issues: http://github.com/kenwheeler/slick/issues
 
-  06/2020: Updated by Dan Blake (https://github.com/designbyblake) to set window scroll positoin back after focus
+  06/2020: Updated by Dan Blake (https://github.com/designbyblake) to set window scroll positoin back after focus, remove role and aria-label on destroy
   05/2019: Updated by Bryan Garaventa (https://github.com/accdc) to enhance automatic accessibility by default for screen reader and keyboard-only users.
 
  */
@@ -863,6 +863,11 @@
 
 		if (_.$dots) {
 			_.$dots.remove();
+		}
+
+		if (_.options.accessibility === true) {
+			_.$slider.removeAttr('role').removeAttr('aria-label');
+
 		}
 
 		if (_.$prevArrow && _.$prevArrow.length) {
